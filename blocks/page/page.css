@@ -8,4 +8,6 @@
   background-color: #000;
   margin: 0 auto;
   color: #fff;
+  display: flex;
+  flex-direction: column;
 }

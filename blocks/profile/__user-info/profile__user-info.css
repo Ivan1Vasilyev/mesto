@@ -2,6 +2,7 @@
   margin: 7px 0 0;
   font-size: 18px;
   line-height: 1.22;
+  grid-area: info;
 }
 
 @media screen and (max-width: 880px) {
@@ -14,6 +15,6 @@
   .profile__user-info {
     font-size: 14px;
     line-height: 1.21;
-    margin-top: 8px;
+    margin-top: 7px;
   }
 }
