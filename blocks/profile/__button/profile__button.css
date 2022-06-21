@@ -10,3 +10,17 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
+
+@media screen and (max-width: 880px) {
+  .profile__button {
+    justify-self: auto;
+
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .profile__button {
+    margin-top: 35px;
+    width: 282px;
+  }
+}

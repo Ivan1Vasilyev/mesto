@@ -1,9 +1,23 @@
 .profile__info {
-  margin: 44px 15px 0 30px;
+  margin: 44px 42px 0 30px;
   display: flex;
   flex-direction: column;
   max-width: 570px;
+  /* min-width: 282px; */
   position: relative;
+}
+
+@media screen and (max-width: 880px) {
+  .profile__info {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .profile__info {
+    margin-top: 25px;
+  }
 }
 
 
