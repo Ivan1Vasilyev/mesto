@@ -1,0 +1,6 @@
+.profile {
+  display: grid;
+  grid-template-columns: max-content max-content 1fr;
+  justify-items: start;
+  align-items: center;
+}
