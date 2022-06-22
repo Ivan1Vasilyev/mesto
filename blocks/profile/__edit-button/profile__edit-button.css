@@ -15,12 +15,20 @@
   opacity: .6;
 }
 
+@media screen and (max-width: 880px) {
+  .profile__edit-button {
+    position: absolute;
+    top: 15px;
+    right: -40px;
+  }
+}
+
 @media screen and (max-width: 440px) {
   .profile__edit-button {
-    margin-left: 10px;
-    margin-right: 10px;
     background-image: url(../../../images/edit_button_small.svg);
     width: 18px;
     height: 18px;
+    top: 7px;
+    right: -28px;
   }
 }
