@@ -1,0 +1,7 @@
+.elements__like-wrap {
+  background-color: #fff;
+  grid-area: like;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
