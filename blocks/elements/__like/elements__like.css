@@ -1,0 +1,7 @@
+.elements__like {
+  grid-area: like;
+  background-color: #fff;
+  background-image: url(../../../images/like.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
