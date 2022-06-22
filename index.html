@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
-<body class="page">
+<body class="root">
+  <div class="page">
   <header class="header">
     <img class="header__logo" src="./images/logo.svg" alt="Логотип">
   </header>
@@ -14,7 +15,7 @@
     <section class="profile">
       <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
       <div class="profile__info">
-        <p class="profile__user-name">Жак-Ив Кусто</p>
+        <h1 class="profile__user-name">Жак-Ив Кусто</h1>
         <div class="profile__edit-button"></div>
         <p class="profile__user-info">Исследователь океана</p>
       </div>
@@ -58,5 +59,15 @@
   <footer class="footer">
     <p class="footer__text">© 2020 Mesto Russia</p>
   </footer>
+  </div>
+  <section class="popup">
+    <form class="popup__container" method="dialog">
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <input class="popup__input popup__input_type_name" type="text" value="Жак-Ив Кусто">
+      <input class="popup__input popup__input_type_info" type="text" value="Исследователь океана">
+      <button class="popup__submit-button">Сохранить</button>
+      <img class="popup__close-icon" src="./images/close_icon.svg" alt="Закрыть"></img>
+    </form>
+  </section>
 </body>
 </html>
