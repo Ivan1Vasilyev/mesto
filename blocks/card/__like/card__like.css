@@ -4,6 +4,7 @@
   border: none;
   background-image: url(../../../images/like.svg);
   background-color: #fff;
+  justify-self: center;
 }
 
 .card__like:hover {
