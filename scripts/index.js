@@ -3,9 +3,9 @@ const popup = document.querySelector('.popup');
 const editButton = document.querySelector('.profile__edit-button');
 const profileName = document.querySelector('.profile__user-name');
 const profileInfo = document.querySelector('.profile__user-info');
-const formElement = document.querySelector('.popup__container');
-const nameInput = document.querySelector('.popup__input_type_name');
-const infoInput = document.querySelector('.popup__input_type_info');
+const formElement = document.querySelector('.form');
+const nameInput = document.querySelector('.form__input[name="name"]');
+const infoInput = document.querySelector('.form__input[name="info"]');
 
 function popupClose() {
   popup.classList.remove('popup_opened');
