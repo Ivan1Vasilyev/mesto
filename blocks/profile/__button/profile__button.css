@@ -6,6 +6,7 @@
   box-sizing: border-box;
   border: 2px solid #fff;
   border-radius: 2px;
+  background-color: #000;
   background-image: url(../../../images/add.svg);
   background-repeat: no-repeat;
   background-position: center center;
