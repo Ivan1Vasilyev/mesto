@@ -6,6 +6,14 @@ const profileInfo = document.querySelector('.profile__user-info');
 const formElement = document.querySelector('.form');
 const nameInput = document.querySelector('.form__input[name="name"]');
 const infoInput = document.querySelector('.form__input[name="info"]');
+const cards = document.querySelector('.elements__container')
+
+function toggleLikes(event) {
+  if (!event.target.classList.contains('card__like')) return
+  event.target.classList.toggle('card__like_active')
+}
+
+cards.addEventListener('click', toggleLikes)
 
 function popupClose() {
   popup.classList.remove('popup_opened');
