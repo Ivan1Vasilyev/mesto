@@ -7,6 +7,7 @@ const formTitle = popup.querySelector('.form__title');
 const formElement = popup.querySelector('.form');
 const nameInput = popup.querySelector('.form__input[name="name"]');
 const infoInput = popup.querySelector('.form__input[name="info"]');
+const submitButton = popup.querySelector('.form__submit-button');
 const cards = document.querySelector('.elements__container');
 const addImageButton = document.querySelector('.profile__button');
 
@@ -60,6 +61,7 @@ editButton.addEventListener('click', function() {
   formTitle.textContent = 'Редактировать профиль';
   nameInput.value = profileName.textContent;
   infoInput.value = profileInfo.textContent;
+  submitButton.textContent = 'Сохранить'
   openPopup();
   formElement.addEventListener('submit', formSubmitAddProfile);
 });
@@ -68,6 +70,7 @@ addImageButton.addEventListener('click', function() {
   formTitle.textContent = 'Новое место';
   nameInput.placeholder="Название";
   infoInput.placeholder="Ссылка на картинку";
+  submitButton.textContent = 'Создать'
   openPopup();
   formElement.addEventListener('submit', formSubmitAddImage);
 })
