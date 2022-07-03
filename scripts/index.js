@@ -9,10 +9,6 @@ const nameInput = popup.querySelector('.form__input[name="name"]');
 const infoInput = popup.querySelector('.form__input[name="info"]');
 const cards = document.querySelector('.elements__container');
 const addImageButton = document.querySelector('.profile__button');
-const popupSettings = {
-  addProfile: false,
-  addImage: false
-}
 
 function toggleLikes(event) {
   if (!event.target.classList.contains('card__like')) return;
@@ -23,7 +19,8 @@ function closePopup() {
   popup.classList.remove('popup_opened');
   nameInput.value = '';
   infoInput.value = '';
-  popupSettings.addProfile = popupSettings.addImage = false;
+  formElement.removeEventListener('submit', formSubmitAddImage);
+  formElement.removeEventListener('submit', formSubmitAddProfile);
 }
 
 function openPopup() {
@@ -40,13 +37,9 @@ function addCard(card) {
   cards.prepend(newCard);
 }
 
-function formSubmitHandler(evt) {
+function formSubmitAddImage(evt) {
   evt.preventDefault();
-  if (popupSettings.addProfile) {
-    profileName.textContent = nameInput.value;
-    profileInfo.textContent = infoInput.value;
-  }
-  if (popupSettings.addImage && nameInput.value && infoInput.value) {
+  if (nameInput.value && infoInput.value) {
     let card = {
       name: nameInput.value,
       link: infoInput.value
@@ -56,25 +49,30 @@ function formSubmitHandler(evt) {
   closePopup();
 }
 
+function formSubmitAddProfile(evt) {
+  evt.preventDefault();
+  profileName.textContent = nameInput.value;
+  profileInfo.textContent = infoInput.value;
+  closePopup();
+}
+
 editButton.addEventListener('click', function() {
-  formTitle.textContent = 'Редактировать профиль'
-  popupSettings.addProfile = true;
+  formTitle.textContent = 'Редактировать профиль';
   nameInput.value = profileName.textContent;
   infoInput.value = profileInfo.textContent;
   openPopup();
+  formElement.addEventListener('submit', formSubmitAddProfile);
 });
 
 addImageButton.addEventListener('click', function() {
   formTitle.textContent = 'Новое место';
-  popupSettings.addImage = true;
   nameInput.placeholder="Название";
   infoInput.placeholder="Ссылка на картинку";
   openPopup();
+  formElement.addEventListener('submit', formSubmitAddImage);
 })
 
 cards.addEventListener('click', toggleLikes);
-
-formElement.addEventListener('submit', formSubmitHandler);
 
 closeIcon.addEventListener('click', closePopup);
 
@@ -104,8 +102,6 @@ const initialCards = [
     link: './images/venice.jpg',
   },
 ];
-
-
 
 function addDefaultCards(cards) {
   for (let i = 0; i < cards.length; i++) {
