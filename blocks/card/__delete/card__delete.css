@@ -13,4 +13,5 @@
 .card__delete:hover {
   cursor: pointer;
   opacity: .6;
+  transition: .4s;
 }

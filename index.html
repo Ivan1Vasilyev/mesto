@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
@@ -40,9 +40,16 @@
         <button class="popup__close-icon" type="button"></button>
       </div>
     </div>
-    <template id="card-template">
+    <div class="popup popup_type_image">
+      <figure class="popup__image-container">
+        <img class="popup__image" src="" alt="">
+        <figcaption class="popup__caption"></figcaption>
+        <button class="popup__close-icon" type="button"></button>
+      </figure>
+    </div>
+    <template class="card-template">
       <li class="card">
-        <img class="card__image" src="." alt="" />
+        <img class="card__image" src="" alt="">
         <button class="card__like" type="button"></button>
         <h2 class="card__caption"></h2>
         <button class="card__delete" type="button"></button>

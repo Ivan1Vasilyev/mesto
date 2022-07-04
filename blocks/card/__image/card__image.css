@@ -4,3 +4,8 @@
   object-fit: cover;
   grid-area: img;
 }
+
+.card__image:hover {
+  cursor: pointer;
+  transition: .4s;
+}

@@ -10,6 +10,7 @@
   background-image: url(../../../images/add.svg);
   background-repeat: no-repeat;
   background-position: center center;
+  transition: .4s;
 }
 
 .profile__button:hover {
