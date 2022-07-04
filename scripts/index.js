@@ -1,7 +1,7 @@
 const popup = document.querySelector('.popup');
 const closeIcon = popup.querySelector('.popup__close-icon');
-const formTitle = popup.querySelector('.form__title');
 const formElement = popup.querySelector('.form');
+const formTitle = popup.querySelector('.form__title');
 const nameInput = popup.querySelector('.form__input[name="name"]');
 const infoInput = popup.querySelector('.form__input[name="info"]');
 const submitButton = popup.querySelector('.form__submit-button');
@@ -10,12 +10,12 @@ const profileName = document.querySelector('.profile__user-name');
 const profileInfo = document.querySelector('.profile__user-info');
 const cards = document.querySelector('.elements__container');
 const addImageButton = document.querySelector('.profile__button');
-const popupImage = document.querySelector('.popup_type_image')
+const popupImage = document.querySelector('.popup_type_image');
+const closeImageButton = popupImage.querySelector('.popup__close-icon_type_image');
 
 function closePopup() {
   popup.classList.remove('popup_opened');
   popupImage.classList.remove('popup_opened');
-  console.dir(popupImage)
   nameInput.value = '';
   infoInput.value = '';
   formElement.removeEventListener('submit', formSubmitAddImage);
@@ -87,9 +87,10 @@ function toggleLike(event) {
 function showImage(event) {
   if (!event.target.classList.contains('card__image')) return;
   const fullImage = popupImage.querySelector('.popup__image');
+  let capture = event.target.nextElementSibling.nextElementSibling.textContent;
   fullImage.src = event.target.src;
-  fullImage.alt = event.target.textContent
-  popupImage.querySelector('.popup__caption').textContent = event.target.textContent;
+  fullImage.alt = capture;
+  popupImage.querySelector('.popup__caption').textContent = capture;
   popupImage.classList.add('popup_opened');
 }
 
@@ -97,6 +98,7 @@ cards.addEventListener('click', removeCard);
 cards.addEventListener('click', toggleLike);
 cards.addEventListener('click', showImage);
 
+closeImageButton.addEventListener('click', closePopup);
 closeIcon.addEventListener('click', closePopup);
 
 const initialCards = [
