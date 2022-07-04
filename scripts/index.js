@@ -1,5 +1,5 @@
 const popup = document.querySelector('.popup');
-const closeIcon = popup.querySelector('.popup__close-icon');
+const closePopupButton = popup.querySelector('.popup__close-icon');
 const formElement = popup.querySelector('.form');
 const formTitle = popup.querySelector('.form__title');
 const nameInput = popup.querySelector('.form__input[name="name"]');
@@ -13,13 +13,17 @@ const addImageButton = document.querySelector('.profile__button');
 const popupImage = document.querySelector('.popup_type_image');
 const closeImageButton = popupImage.querySelector('.popup__close-icon_type_image');
 
-function closePopup() {
-  popup.classList.remove('popup_opened');
-  popupImage.classList.remove('popup_opened');
+function clearInputsAndListeners() {
   nameInput.value = '';
   infoInput.value = '';
   formElement.removeEventListener('submit', formSubmitAddImage);
   formElement.removeEventListener('submit', formSubmitAddProfile);
+}
+
+function closePopup() {
+  popup.classList.remove('popup_opened');
+  popupImage.classList.remove('popup_opened');
+  clearInputsAndListeners();
 }
 
 function openPopup() {
@@ -39,7 +43,7 @@ function addCard(card) {
 function formSubmitAddImage(event) {
   event.preventDefault();
   if (nameInput.value && infoInput.value) {
-    let card = {
+    const card = {
       name: nameInput.value,
       link: infoInput.value
     }
@@ -50,8 +54,8 @@ function formSubmitAddImage(event) {
 
 function formSubmitAddProfile(event) {
   event.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileInfo.textContent = infoInput.value;
+  profileName.textContent = nameInput.value ? nameInput.value : 'без имени';
+  profileInfo.textContent = infoInput.value ? infoInput.value : 'без занятий';
   closePopup();
 }
 
@@ -66,8 +70,8 @@ editButton.addEventListener('click', function() {
 
 addImageButton.addEventListener('click', function() {
   formTitle.textContent = 'Новое место';
-  nameInput.placeholder="Название";
-  infoInput.placeholder="Ссылка на картинку";
+  nameInput.placeholder = "Название";
+  infoInput.placeholder = "Ссылка на картинку";
   submitButton.textContent = 'Создать';
   openPopup();
   formElement.addEventListener('submit', formSubmitAddImage);
@@ -87,7 +91,7 @@ function toggleLike(event) {
 function showImage(event) {
   if (!event.target.classList.contains('card__image')) return;
   const fullImage = popupImage.querySelector('.popup__image');
-  let capture = event.target.nextElementSibling.nextElementSibling.textContent;
+  const capture = event.target.nextElementSibling.nextElementSibling.textContent;
   fullImage.src = event.target.src;
   fullImage.alt = capture;
   popupImage.querySelector('.popup__caption').textContent = capture;
@@ -99,11 +103,11 @@ cards.addEventListener('click', toggleLike);
 cards.addEventListener('click', showImage);
 
 closeImageButton.addEventListener('click', closePopup);
-closeIcon.addEventListener('click', closePopup);
+closePopupButton.addEventListener('click', closePopup);
 
 const initialCards = [
   {
-    name: 'Карачаевск',
+    name: 'Карачаево-Черкессия',
     link: './images/karachaev.jpg',
   },
   {
