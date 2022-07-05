@@ -33,8 +33,8 @@
       <div class="popup__form-container">
         <form class="form" name="profile">
           <h2 class="form__title">Редактировать профиль</h2>
-          <input class="form__input" type="text" name="name">
-          <input class="form__input" type="text" name="info">
+          <input class="form__input" type="text" name="name" required>
+          <input class="form__input" type="text" name="info" required>
           <button class="form__submit-button" type="submit">Сохранить</button>
         </form>
         <button class="popup__close-icon" type="button"></button>
@@ -44,8 +44,8 @@
       <div class="popup__form-container">
         <form class="form" name="add-image">
           <h2 class="form__title">Новое место</h2>
-          <input class="form__input" type="text" placeholder="Название" name="place">
-          <input class="form__input" type="text" placeholder="Ссылка на картинку" name="link">
+          <input class="form__input" type="text" placeholder="Название" name="place" required>
+          <input class="form__input" type="url" placeholder="Ссылка на картинку" name="link" required>
           <button class="form__submit-button" type="submit">Создать</button>
         </form>
         <button class="popup__close-icon" type="button"></button>
@@ -60,7 +60,7 @@
         <button class="popup__close-icon" type="button"></button>
       </div>
     </div>
-    <template class="card-template">
+    <template id="card-template">
       <li class="card">
         <img class="card__image" src="#" alt="">
         <h2 class="card__caption"></h2>
