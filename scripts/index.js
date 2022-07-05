@@ -12,15 +12,15 @@ const profileInfo = document.querySelector('.profile__user-info');
 const buttonAddCard = document.querySelector('.profile__button');
 const cards = document.querySelector('.elements__container');
 const popupEditProfile = document.querySelector('.popup_type_profile');   //попап профиля
-const buttonClosePopupProfile = popupEditProfile.querySelector('.popup__close-icon');
+const buttonClosePopupEditProfile = popupEditProfile.querySelector('.popup__close-icon');
 const formPopupEditProfile = popupEditProfile.querySelector('.form');
-const nameInputPopupProfile = formPopupEditProfile.querySelector('.form__input[name="name"]');
-const infoInputPopupProfile = formPopupEditProfile.querySelector('.form__input[name="info"]');
+const inputNamePopupEditProfile = formPopupEditProfile.querySelector('.form__input[name="name"]');
+const inputInfoPopupEditProfile = formPopupEditProfile.querySelector('.form__input[name="info"]');
 const popupAddCard = document.querySelector('.popup_type_add-image');      //попап добавления карточек
 const buttonClosePopupAddCard = popupAddCard.querySelector('.popup__close-icon');
 const formPopupAddCard = popupAddCard.querySelector('.form');
-const placeInputPopupAddCard = popupAddCard.querySelector('.form__input[name="place"]');
-const linkInputPopupAddCard = popupAddCard.querySelector('.form__input[name="link"]');
+const inputPlacePopupAddCard = popupAddCard.querySelector('.form__input[name="place"]');
+const inputLinkPopupAddCard = popupAddCard.querySelector('.form__input[name="link"]');
 const popupFullImage = document.querySelector('.popup_type_full-image');   //попап увеличенной картинки
 const fullImage = popupFullImage.querySelector('.full-image__image');
 const captureFullImage = popupFullImage.querySelector('.full-image__caption');
@@ -32,8 +32,8 @@ function addDefaultCards(collection) {
 }
 
 function updatePopupEditProfileInputs() {
-  nameInputPopupProfile.value = profileName.textContent;
-  infoInputPopupProfile.value = profileInfo.textContent;
+  inputNamePopupEditProfile.value = profileName.textContent;
+  inputInfoPopupEditProfile.value = profileInfo.textContent;
 }
 
 function openPopup(popup) {
@@ -86,8 +86,8 @@ function addCard(card) {
 function submitFormAddCard(event) {
   event.preventDefault();
   const usersCard = {
-    name: placeInputPopupAddCard.value.trim(),
-    link: linkInputPopupAddCard.value.trim()
+    name: inputPlacePopupAddCard.value.trim(),
+    link: inputLinkPopupAddCard.value.trim()
   };
   addCard(usersCard);
   closePopup(popupAddCard);
@@ -95,8 +95,8 @@ function submitFormAddCard(event) {
 
 function submitFormEditProfile(event) {
   event.preventDefault();
-  profileName.textContent = nameInputPopupProfile.value.trim();
-  profileInfo.textContent = infoInputPopupProfile.value.trim();
+  profileName.textContent = inputNamePopupEditProfile.value.trim();
+  profileInfo.textContent = inputInfoPopupEditProfile.value.trim();
   closePopup(popupEditProfile);
 }
 
@@ -108,7 +108,7 @@ buttonAddCard.addEventListener('click', () => {
   formPopupAddCard.reset();
   openPopup(popupAddCard);
 });
-buttonClosePopupProfile.addEventListener('click', () => closePopup(popupEditProfile));
+buttonClosePopupEditProfile.addEventListener('click', () => closePopup(popupEditProfile));
 buttonClosePopupFullImage.addEventListener('click', () => closePopup(popupFullImage));
 buttonClosePopupAddCard.addEventListener('click', () => closePopup(popupAddCard));
 formPopupEditProfile.addEventListener('submit', submitFormEditProfile);
