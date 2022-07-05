@@ -31,7 +31,7 @@ function addDefaultCards(collection) {
   collection.forEach(item => addCard(item));
 }
 
-function updatePopupEditProfileInputs() {
+function updateInputsPopupEditProfile() {
   inputNamePopupEditProfile.value = profileName.textContent;
   inputInfoPopupEditProfile.value = profileInfo.textContent;
 }
@@ -101,7 +101,7 @@ function submitFormEditProfile(event) {
 }
 
 buttonEditProfile.addEventListener('click', () => {
-  updatePopupEditProfileInputs();
+  updateInputsPopupEditProfile();
   openPopup(popupEditProfile);
 });
 buttonAddCard.addEventListener('click', () => {
