@@ -25,8 +25,7 @@ const popupFullImage = document.querySelector('.popup_type_full-image');   //Ð¿Ð
 const fullImage = popupFullImage.querySelector('.full-image__image');
 const captureFullImage = popupFullImage.querySelector('.full-image__caption');
 const buttonClosePopupFullImage = popupFullImage.querySelector('.popup__close-icon');
-const cardTemplate = document.querySelector('#card-template').content;
-const emptyCard = cardTemplate.querySelector('.card');
+const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
 
 function addDefaultCards(collection) {
   collection.forEach(item => addCard(item));
@@ -62,7 +61,7 @@ function showFullImage(target) {
 }
 
 function createCard(card) {
-  const newCard = emptyCard.cloneNode(true);
+  const newCard = cardTemplate.cloneNode(true);
   const newImage = newCard.querySelector('.card__image');
   const newCapture = newCard.querySelector('.card__caption');
   ({link: newImage.src, name: newImage.alt, name: newCapture.textContent} = card);
