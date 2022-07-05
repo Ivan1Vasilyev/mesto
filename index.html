@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
+    <script defer src="./scripts/index.js"></script>
     <title>Mesto</title>
   </head>
   <body class="root">
@@ -16,10 +17,10 @@
           <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
           <div class="profile__info">
             <h1 class="profile__user-name">Жак-Ив Кусто</h1>
-            <button class="profile__edit-button" type="button"></button>
+            <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
             <p class="profile__user-info">Исследователь океана</p>
           </div>
-          <button class="profile__button" type="button"></button>
+          <button class="profile__button" type="button" aria-label="Добавить картинку"></button>
         </section>
         <section class="elements">
           <ul class="elements__container"></ul>
@@ -37,7 +38,7 @@
           <input class="form__input" type="text" name="info" required>
           <button class="form__submit-button" type="submit">Сохранить</button>
         </form>
-        <button class="popup__close-icon" type="button"></button>
+        <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
       </div>
     </div>
     <div class="popup popup_type_add-image">
@@ -48,7 +49,7 @@
           <input class="form__input" type="url" placeholder="Ссылка на картинку" name="link" required>
           <button class="form__submit-button" type="submit">Создать</button>
         </form>
-        <button class="popup__close-icon" type="button"></button>
+        <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
       </div>
     </div>
     <div class="popup popup_type_full-image">
@@ -57,17 +58,16 @@
           <img class="full-image__image" src="#" alt="">
           <figcaption class="full-image__caption"></figcaption>
         </figure>
-        <button class="popup__close-icon" type="button"></button>
+        <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
       </div>
     </div>
     <template id="card-template">
       <li class="card">
         <img class="card__image" src="#" alt="">
         <h2 class="card__caption"></h2>
-        <button class="card__like" type="button"></button>
-        <button class="card__delete" type="button"></button>
+        <button class="card__like" type="button" aria-label="Лайк"></button>
+        <button class="card__delete" type="button" aria-label="Удалить карточку"></button>
       </li>
     </template>
-    <script src="./scripts/index.js"></script>
   </body>
 </html>
