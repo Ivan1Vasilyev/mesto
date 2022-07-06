@@ -28,7 +28,7 @@ const buttonClosePopupFullImage = popupFullImage.querySelector('.popup__close-ic
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
 
 function addDefaultCards(collection) {
-  collection.forEach(item => addCard(item));
+  collection.forEach(addCard(item));
 }
 
 function updateInputsPopupEditProfile() {
