@@ -44,17 +44,8 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-function removeCard(target) {
-  target.closest('.card').remove();
-}
-
-function toggleLike(target) {
-  target.classList.toggle('card__like_active');
-}
-
-function showFullImage(target) {
-  const capture = target.nextElementSibling.textContent;
-  fullImage.src = target.src;
+function showFullImage(image, capture) {
+  fullImage.src = image.src;
   fullImage.alt = capture;
   captureFullImage.textContent = capture;
   openPopup(popupFullImage);
@@ -64,13 +55,11 @@ function createCard(card) {
   const newCard = cardTemplate.cloneNode(true);
   const newImage = newCard.querySelector('.card__image');
   const newCapture = newCard.querySelector('.card__caption');
+  const like = newCard.querySelector('.card__like');
   ({ link: newImage.src, name: newImage.alt, name: newCapture.textContent } = card);
-  newCard.addEventListener('click', (event) => {
-    const target = event.target;
-    if (target.classList.contains('card__delete')) removeCard(target);
-    if (target.classList.contains('card__like')) toggleLike(target);
-    if (target.classList.contains('card__image')) showFullImage(target);
-  });
+  newCard.querySelector('.card__delete').addEventListener('click', () => newCard.remove());
+  like.addEventListener('click', () => like.classList.toggle('card__like_active'));
+  newImage.addEventListener('click', () => showFullImage(newImage, newCapture.textContent));
   return newCard;
 }
 
@@ -114,5 +103,4 @@ buttonClosePopupAddCard.addEventListener('click', () => closePopup(popupAddCard)
 formPopupEditProfile.addEventListener('submit', submitFormEditProfile);
 formPopupAddCard.addEventListener('submit', submitFormAddCard);
 
-//выводим первые 6 карточек
-addDefaultCards(initialCards);
+addDefaultCards(initialCards); //выводим первые 6 карточек
