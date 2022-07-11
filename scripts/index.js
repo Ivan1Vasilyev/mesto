@@ -12,19 +12,17 @@ const profileInfo = document.querySelector('.profile__user-info');
 const buttonAddCard = document.querySelector('.profile__button');
 const cards = document.querySelector('.elements__container');
 const popupEditProfile = document.querySelector('.popup_type_profile'); //попап профиля
-const buttonClosePopupEditProfile = popupEditProfile.querySelector('.popup__close-icon');
 const formPopupEditProfile = popupEditProfile.querySelector('.form');
 const inputNamePopupEditProfile = formPopupEditProfile.querySelector('.form__input[name="name"]');
 const inputInfoPopupEditProfile = formPopupEditProfile.querySelector('.form__input[name="info"]');
 const popupAddCard = document.querySelector('.popup_type_add-image'); //попап добавления карточек
-const buttonClosePopupAddCard = popupAddCard.querySelector('.popup__close-icon');
 const formPopupAddCard = popupAddCard.querySelector('.form');
 const inputPlacePopupAddCard = popupAddCard.querySelector('.form__input[name="place"]');
 const inputLinkPopupAddCard = popupAddCard.querySelector('.form__input[name="link"]');
 const popupFullImage = document.querySelector('.popup_type_full-image'); //попап увеличенной картинки
 const fullImage = popupFullImage.querySelector('.full-image__image');
 const captureFullImage = popupFullImage.querySelector('.full-image__caption');
-const buttonClosePopupFullImage = popupFullImage.querySelector('.popup__close-icon');
+const popups = document.querySelectorAll('.popup');
 const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
 
 function addDefaultCards(collection) {
@@ -97,9 +95,13 @@ buttonAddCard.addEventListener('click', () => {
   formPopupAddCard.reset();
   openPopup(popupAddCard);
 });
-buttonClosePopupEditProfile.addEventListener('click', () => closePopup(popupEditProfile));
-buttonClosePopupFullImage.addEventListener('click', () => closePopup(popupFullImage));
-buttonClosePopupAddCard.addEventListener('click', () => closePopup(popupAddCard));
+//для кнопок закрытия попапов.
+popups.forEach((item) =>
+  item.addEventListener('click', (event) => {
+    if (event.target.classList.contains('popup__close-icon')) closePopup(item);
+  })
+);
+
 formPopupEditProfile.addEventListener('submit', submitFormEditProfile);
 formPopupAddCard.addEventListener('submit', submitFormAddCard);
 
