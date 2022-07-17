@@ -1,29 +1,29 @@
 const initialCards = [
-  { name: 'Карачаево-Черкессия', link: './images/karachaev.jpg' },
-  { name: 'Москва', link: './images/moscow.jpg' },
-  { name: 'Горный Алтай', link: './images/altay.jpg' },
-  { name: 'Ибица', link: './images/ibiza.jpg' },
-  { name: 'Париж', link: './images/paris.jpg' },
-  { name: 'Венеция', link: './images/venice.jpg' },
-];
-const buttonEditProfile = document.querySelector('.profile__edit-button');
-const profileName = document.querySelector('.profile__user-name');
-const profileInfo = document.querySelector('.profile__user-info');
-const buttonAddCard = document.querySelector('.profile__button');
-const cards = document.querySelector('.elements__container');
-const popupEditProfile = document.querySelector('.popup_type_profile'); //попап профиля
-const formPopupEditProfile = popupEditProfile.querySelector('.form');
-const inputNamePopupEditProfile = formPopupEditProfile.querySelector('.form__input[name="name"]');
-const inputInfoPopupEditProfile = formPopupEditProfile.querySelector('.form__input[name="info"]');
-const popupAddCard = document.querySelector('.popup_type_add-image'); //попап добавления карточек
-const formPopupAddCard = popupAddCard.querySelector('.form');
-const inputPlacePopupAddCard = popupAddCard.querySelector('.form__input[name="place"]');
-const inputLinkPopupAddCard = popupAddCard.querySelector('.form__input[name="link"]');
-const popupFullImage = document.querySelector('.popup_type_full-image'); //попап увеличенной картинки
-const fullImage = popupFullImage.querySelector('.full-image__image');
-const captureFullImage = popupFullImage.querySelector('.full-image__caption');
-const popups = document.querySelectorAll('.popup');
-const cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
+    { name: 'Карачаево-Черкессия', link: './images/karachaev.jpg' },
+    { name: 'Москва', link: './images/moscow.jpg' },
+    { name: 'Горный Алтай', link: './images/altay.jpg' },
+    { name: 'Ибица', link: './images/ibiza.jpg' },
+    { name: 'Париж', link: './images/paris.jpg' },
+    { name: 'Венеция', link: './images/venice.jpg' },
+  ],
+  buttonEditProfile = document.querySelector('.profile__edit-button'),
+  profileName = document.querySelector('.profile__user-name'),
+  profileInfo = document.querySelector('.profile__user-info'),
+  buttonAddCard = document.querySelector('.profile__button'),
+  cards = document.querySelector('.elements__container'),
+  popupEditProfile = document.querySelector('.popup_type_profile'), //попап профиля
+  formPopupEditProfile = popupEditProfile.querySelector('.form'),
+  inputNamePopupEditProfile = formPopupEditProfile.querySelector('.form__input[name="name"]'),
+  inputInfoPopupEditProfile = formPopupEditProfile.querySelector('.form__input[name="info"]'),
+  popupAddCard = document.querySelector('.popup_type_add-image'), //попап добавления карточек
+  formPopupAddCard = popupAddCard.querySelector('.form'),
+  inputPlacePopupAddCard = popupAddCard.querySelector('.form__input[name="place"]'),
+  inputLinkPopupAddCard = popupAddCard.querySelector('.form__input[name="link"]'),
+  popupFullImage = document.querySelector('.popup_type_full-image'), //попап увеличенной картинки
+  fullImage = popupFullImage.querySelector('.full-image__image'),
+  captureFullImage = popupFullImage.querySelector('.full-image__caption'),
+  popups = document.querySelectorAll('.popup'),
+  cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
 
 function addDefaultCards(collection) {
   collection.forEach(addCard);
