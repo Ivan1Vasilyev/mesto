@@ -42,8 +42,8 @@ function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-function showFullImage(image, capture) {
-  fullImage.src = image.src;
+function showFullImage(url, capture) {
+  fullImage.src = url;
   fullImage.alt = capture;
   captureFullImage.textContent = capture;
   openPopup(popupFullImage);
@@ -57,7 +57,7 @@ function createCard(card) {
   ({ link: newImage.src, name: newImage.alt, name: newCapture.textContent } = card);
   newCard.querySelector('.card__delete').addEventListener('click', () => newCard.remove());
   like.addEventListener('click', () => like.classList.toggle('card__like_active'));
-  newImage.addEventListener('click', () => showFullImage(newImage, newCapture.textContent));
+  newImage.addEventListener('click', () => showFullImage(newImage.src, newCapture.textContent));
   return newCard;
 }
 
