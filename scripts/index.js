@@ -113,7 +113,9 @@ buttonAddCard.addEventListener('click', () => {
 //для кнопок закрытия попапов.
 popups.forEach((item) =>
   item.addEventListener('click', (event) => {
-    if (event.target.classList.contains('popup__close-icon') || event.target.classList.contains('popup')) closePopup();
+    if (event.target.classList.contains('popup__close-icon') || event.target.classList.contains('popup')) {
+      closePopup();
+    }
   })
 );
 
