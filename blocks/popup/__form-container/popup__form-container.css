@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  cursor: default;
 }
 
 @media screen and (max-width: 590px) {
