@@ -1,3 +1,4 @@
+//константы
 const initialCards = [
     { name: 'Карачаево-Черкессия', link: './images/karachaev.jpg' },
     { name: 'Москва', link: './images/moscow.jpg' },
@@ -25,6 +26,7 @@ const initialCards = [
   popups = document.querySelectorAll('.popup'),
   cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
 
+//функции
 function addDefaultCards(collection) {
   collection.forEach(addCard);
 }
@@ -102,6 +104,7 @@ function submitFormEditProfile(event) {
   closePopup();
 }
 
+//слушатели событий
 buttonEditProfile.addEventListener('click', () => {
   updateInputsPopupEditProfile();
   openPopup(popupEditProfile);
@@ -110,7 +113,7 @@ buttonAddCard.addEventListener('click', () => {
   formPopupAddCard.reset();
   openPopup(popupAddCard);
 });
-//для кнопок закрытия попапов.
+
 popups.forEach((item) =>
   item.addEventListener('click', (event) => {
     if (event.target.classList.contains('popup__close-icon') || event.target.classList.contains('popup')) {
@@ -122,4 +125,5 @@ popups.forEach((item) =>
 formPopupEditProfile.addEventListener('submit', submitFormEditProfile);
 formPopupAddCard.addEventListener('submit', submitFormAddCard);
 
-addDefaultCards(initialCards); //выводим первые 6 карточек
+//выводим первые 6 карточек
+addDefaultCards(initialCards);
