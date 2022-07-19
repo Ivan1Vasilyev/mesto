@@ -24,7 +24,8 @@ const initialCards = [
   fullImage = popupFullImage.querySelector('.full-image__image'),
   captureFullImage = popupFullImage.querySelector('.full-image__caption'),
   popups = document.querySelectorAll('.popup'),
-  cardTemplate = document.querySelector('#card-template').content.querySelector('.card');
+  cardTemplate = document.querySelector('#card-template').content.querySelector('.card'),
+  errorTextes = Array.from(document.querySelectorAll('.form__input-error'));
 
 //функции
 function addDefaultCards(collection) {
@@ -36,6 +37,10 @@ function updateInputsPopupEditProfile() {
   inputInfoPopupEditProfile.value = profileInfo.textContent;
 }
 
+function addClosePopupListener() {
+  document.addEventListener('keydown', closePopupFromKey);
+}
+
 function removeClosePopupListener() {
   document.removeEventListener('keydown', closePopupFromKey);
 }
@@ -45,8 +50,9 @@ function closePopupFromKey(event) {
     closePopup();
   }
 }
-function addClosePopupListener() {
-  document.addEventListener('keydown', closePopupFromKey);
+
+function clearErrorText() {
+  errorTextes.forEach(item => item.textContent = '')
 }
 
 function openPopup(popup) {
@@ -54,15 +60,15 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
+//знак ? - чтобы в консоли не было ошибок при кликах на попап во время его плавного закрытия
 function closePopup() {
   removeClosePopupListener();
-  document.querySelector('.popup_opened').classList.remove('popup_opened');
+  clearErrorText()
+  document.querySelector('.popup_opened')?.classList.remove('popup_opened');
 }
 
-function showFullImage(url, capture) {
-  fullImage.src = url;
-  fullImage.alt = capture;
-  captureFullImage.textContent = capture;
+function showFullImage(card) {
+  ({ link: fullImage.src, name: fullImage.alt, name: captureFullImage.textContent } = card)
   openPopup(popupFullImage);
 }
 
@@ -74,7 +80,7 @@ function createCard(card) {
   ({ link: newImage.src, name: newImage.alt, name: newCapture.textContent } = card);
   newCard.querySelector('.card__delete').addEventListener('click', () => newCard.remove());
   like.addEventListener('click', () => like.classList.toggle('card__like_active'));
-  newImage.addEventListener('click', () => showFullImage(newImage.src, newCapture.textContent));
+  newImage.addEventListener('click', () => showFullImage(card));
   return newCard;
 }
 
@@ -109,6 +115,7 @@ buttonEditProfile.addEventListener('click', () => {
   updateInputsPopupEditProfile();
   openPopup(popupEditProfile);
 });
+
 buttonAddCard.addEventListener('click', () => {
   formPopupAddCard.reset();
   openPopup(popupAddCard);

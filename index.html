@@ -29,17 +29,17 @@
       </section>
     </main>
     <footer class="footer">
-      <p class="footer__text">© 2020 Mesto Russia</p>
+      <p class="footer__text">© 2022 Mesto Russia</p>
     </footer>
   </div>
   <div class="popup popup_type_profile">
     <div class="popup__form-container">
-      <form class="form" name="profile">
+      <form class="form" name="profile" novalidate>
         <h2 class="form__title">Редактировать профиль</h2>
         <input class="form__input" type="text" name="name" minlength="2" maxlength="40" required>
-        <span class="form__input-error">Минимальное количество символов: 2. Длина текста сейчас: 1 символ.</span>
+        <span class="form__input-error" id="name-error"></span>
         <input class="form__input" type="text" name="info" minlength="2" maxlength="200" required>
-        <span class="form__input-error"></span>
+        <span class="form__input-error" id="info-error"></span>
         <button class="form__submit-button" type="submit">Сохранить</button>
       </form>
       <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
@@ -47,13 +47,13 @@
   </div>
   <div class="popup popup_type_add-image">
     <div class="popup__form-container">
-      <form class="form" name="add-image">
+      <form class="form" name="add-image" novalidate>
         <h2 class="form__title">Новое место</h2>
         <input class="form__input" type="text" placeholder="Название" name="place" minlength="2" maxlength="30"
           required>
-        <span class="form__input-error">Вы пропустили это поле.</span>
+        <span class="form__input-error" id="place-error"></span>
         <input class="form__input" type="url" placeholder="Ссылка на картинку" name="link" required>
-        <span class="form__input-error">Введите адрес сайта.</span>
+        <span class="form__input-error" id="link-error"></span>
         <button class="form__submit-button" type="submit">Создать</button>
       </form>
       <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
