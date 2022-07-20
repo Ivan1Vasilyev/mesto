@@ -102,6 +102,14 @@ function setButton(target) {
   return button.classList.contains('form__submit-button_disabled');
 }
 
+function submitFormEditProfile(event) {
+  event.preventDefault();
+  if (setButton(event.target)) return;
+  profileName.textContent = inputNamePopupEditProfile.value.trim();
+  profileInfo.textContent = inputInfoPopupEditProfile.value.trim();
+  closePopup();
+}
+
 function submitFormAddCard(event) {
   event.preventDefault();
   if (setButton(event.target)) return;
@@ -110,14 +118,6 @@ function submitFormAddCard(event) {
     link: inputLinkPopupAddCard.value.trim(),
   };
   addCard(usersCard);
-  closePopup();
-}
-
-function submitFormEditProfile(event) {
-  event.preventDefault();
-  if (setButton(event.target)) return;
-  profileName.textContent = inputNamePopupEditProfile.value.trim();
-  profileInfo.textContent = inputInfoPopupEditProfile.value.trim();
   closePopup();
 }
 
@@ -135,7 +135,7 @@ buttonAddCard.addEventListener('click', () => {
 });
 
 popups.forEach(item =>
-  item.addEventListener('click', event => {
+  item.addEventListener('mousedown', event => {
     if (event.target.classList.contains('popup__close-icon') || event.target.classList.contains('popup')) {
       closePopup();
     }
