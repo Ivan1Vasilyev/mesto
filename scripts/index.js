@@ -25,8 +25,8 @@ const initialCards = [
   popupFullImage = document.querySelector('.popup_type_full-image'), //попап увеличенной картинки
   fullImage = popupFullImage.querySelector('.full-image__image'),
   captureFullImage = popupFullImage.querySelector('.full-image__caption'),
-  popups = document.querySelectorAll('.popup'),
   cardTemplate = document.querySelector('#card-template').content.querySelector('.card'),
+  popups = Array.from(document.querySelectorAll('.popup')),
   errorElements = Array.from(document.querySelectorAll('.form__input-error')),
   inputs = Array.from(document.querySelectorAll('.form__input'));
 
@@ -64,7 +64,6 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
-//знак ? - чтобы в консоли не было ошибок при кликах на оверлей во время его плавного закрытия
 function closePopup() {
   removeClosePopupListener();
   clearErrors();
@@ -147,3 +146,25 @@ formPopupAddCard.addEventListener('submit', submitFormAddCard);
 
 //выводим первые 6 карточек
 addDefaultCards(initialCards);
+
+
+Array.from(document.forms).forEach(form => {
+  const inputs = Array.from(form.querySelectorAll('.form__input'))
+  const firstInput = inputs[0];
+  const lastInput= inputs[inputs.length - 1];
+
+  firstInput.addEventListener('keydown', (event) => {
+    if (event.key == 'Tab' && event.shiftKey) {
+      event.preventDefault();
+      lastInput.focus();
+    }
+  });
+
+  lastInput.addEventListener('keydown', (event) => {
+    if (event.key == 'Tab' && !event.shiftKey) {
+      event.preventDefault();
+      firstInput.focus();
+    }
+  })
+})
+

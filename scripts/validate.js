@@ -47,7 +47,6 @@ function setEventListeners(form, options) {
 function enableValidation(options) {
   const forms = Array.from(document.querySelectorAll(options.formSelector));
   forms.forEach(form => {
-    form.addEventListener('submit', e => e.preventDefault());
     setEventListeners(form, options);
   });
 }
