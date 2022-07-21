@@ -25,7 +25,7 @@ function validateInput(input, errorText, inputErrorClass) {
 }
 
 function hasInvalidInput(inputList) {
-  return inputList.every(input => input.validity.valid);
+  return inputList.every(input => input.validity.valid); // переделать
 }
 
 function toggleButtonState(inputList, button, disabled) {
@@ -36,7 +36,7 @@ function setEventListeners(form, options) {
   const inputs = Array.from(form.querySelectorAll(options.inputSelector));
   const buttonSubmit = form.querySelector(options.submitButtonSelector);
   inputs.forEach(input => {
-    const errorElement = document.getElementById(`${input.getAttribute('name')}-error`);
+    const errorElement = document.getElementById(`${input.getAttribute('name')}-error`); // можно вынуть о тинпута внутри функции
     input.addEventListener('input', () => {
       validateInput(input, errorElement, options.inputErrorClass);
       toggleButtonState(inputs, buttonSubmit, options.inactiveButtonClass);
